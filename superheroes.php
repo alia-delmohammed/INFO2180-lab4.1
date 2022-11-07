@@ -64,9 +64,29 @@ $superheroes = [
 ];
 
 ?>
+<?php 
+$Query = filter_input(INPUT_GET, "query", FILTER_SANITIZE_STRING);
+$data=false;
+$not_found = "SUPERHERO NOT FOUND";
+foreach ($superheroes as $get_marvel_hero)
+{
+    if ( $get_marvel_hero['name']==$Myquery and/or $get_marvel_hero['alias'] === $Query)
+    {
+        $data=true;
+        echo"<h3>{$get_marvel_hero['alias']}</h3>";
+        echo"<h4>{$get_marvel_hero['name']}</h4>";
+        echo"</p>{$get_marvel_hero['biography']}</p>";
+        
+    }
+    elseif(strlen($Query) === 0){
+    
+      echo"<ul><li>{$get_marvel_hero['alias']}</li> </ul>";
+      $data=true;
+    } 
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+}
+if ($data == false)
+{
+        echo "<p>{$not_found}</p>";
+}
+?>
