@@ -62,7 +62,6 @@ $superheroes = [
       "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
   ], 
 ];
-
 ?>
 <?php 
 $Query = filter_input(INPUT_GET, "query", FILTER_SANITIZE_STRING);
@@ -70,7 +69,7 @@ $data=false;
 $not_found = "SUPERHERO NOT FOUND";
 foreach ($superheroes as $get_marvel_hero)
 {
-    if ( $get_marvel_hero['name']==$Myquery and/or $get_marvel_hero['alias'] === $Query)
+    if ( $get_marvel_hero['name']==$Query or $get_marvel_hero['alias'] === $Query)
     {
         $data=true;
         echo"<h3>{$get_marvel_hero['alias']}</h3>";
