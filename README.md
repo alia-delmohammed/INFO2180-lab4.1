@@ -1,3 +1,3 @@
-# info2180-lab4.1
+# info2180-lab4
 
 This is Lab 4 for Alia Delmohammed
