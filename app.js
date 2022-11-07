@@ -5,12 +5,12 @@ window.addEventListener("load", () =>
   
     button.addEventListener("click", (event) => {
         event.preventDefault();
-        fetch(`http://localhost:8888/info2180-lab4/superheroes.php?query=${input.value}`)
-        .then((result) => {
-          return result.text();
+        fetch(`http://localhost/info2180-lab4/superheroes.php?query=${input.value}`)
+        .then((r) => {
+          return r.text();
         })
-        .then((result) => {
-         printResults(result);
+        .then((r) => {
+         printResults(r);
         })
         .catch((event) => {
           alert(event.toString());
@@ -20,8 +20,7 @@ window.addEventListener("load", () =>
   
   function printResults(result) {
       if (result !==""){
-        document.getElementById("result").innerHTML = result;
+        document.getElementById("results").innerHTML = result;
 
       }
     }
-
